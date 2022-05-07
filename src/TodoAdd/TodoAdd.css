@@ -1,0 +1,41 @@
+.addField{
+    width: 55%;
+    font-size: 20px;
+    background-color: transparent;
+    border-bottom: 2px solid white;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    color: white;
+}
+.addField:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+
+}
+.addField:focus{
+    border-radius: 0px;
+    border: none;
+    /* background-color: rgba(0, 0, 0, 0.2); */
+    background-image: none;
+    outline: 0;
+    text-align: center;
+}
+::placeholder{
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+.addForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.addButton{
+    height: 25px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.10);
+    cursor: pointer;
+}
+.addButton:hover{
+    background-color: rgb(0, 0, 0, 0.20);
+}
