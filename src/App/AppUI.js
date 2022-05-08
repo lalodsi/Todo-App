@@ -7,31 +7,36 @@ import { TodosCounter } from '../TodosCounter';
 import { TodoAdd } from '../TodoAdd';
 import { TodoContext } from "../TodoContext";
 
+function WaitingMessage() {
+  return(
+    <h2>Cargando...</h2>
+  );
+}
+
 function AppUI() {
+
+  const { 
+    error, 
+    loading, 
+    searchTodos, 
+    completeTodo, 
+    eraseTodo,
+    title } = React.useContext( TodoContext );
+
     return (
     <React.Fragment>
-    
-    <TodoContext.Consumer>
-      {({title}) => (
-        <h1>
-        {title}
-        </h1>
-      )}
-    </TodoContext.Consumer>
+
+    <h1>
+    {title}
+    </h1>
     
     <TodosCounter />
     <TodoSearch />
 
-    <TodoContext.Consumer>
-    {({ 
-      error, 
-      loading, 
-      searchTodos, 
-      completeTodo, 
-      eraseTodo}) => (
+    
       <TodoList>
       {error && <p>Desespérate, hubo un error</p>}
-      {loading && <p>Estamos cargando</p>}
+      {loading && <WaitingMessage />}
       {(!loading && !searchTodos.length) && <p>Crea tu primer Todo</p>}
 
       {
@@ -43,8 +48,7 @@ function AppUI() {
         completed={todo.completed}></TodoItem> )
       }
     </TodoList>
-    ) }
-    </TodoContext.Consumer>
+    
     
     <TodoAdd></TodoAdd>
     
