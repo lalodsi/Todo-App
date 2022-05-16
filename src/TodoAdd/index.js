@@ -4,27 +4,19 @@ import { TodoContext } from "../TodoContext";
 
 function TodoAdd(params) {
 
-    const { addValue, setAddValue, addTodo } = React.useContext( TodoContext );
+    const { setOpenModal, openModal } = React.useContext( TodoContext );
 
-    function changeValue(event) {
-        setAddValue(event.target.value);
-    }
     function onAddValue() {
-        addTodo(addValue);
+        setOpenModal(true)
     }
 
     return(
         <Fragment>
-            <form className="addForm">
-                <input className="addField" type="text" 
-                value={addValue}
-                onChange={changeValue}
-                />
                 <p 
                     className="addButton"
-                    onClick={onAddValue}
-                >Agregar nueva tarea</p>
-            </form>
+                    onClick={onAddValue}>
+                        Crear nueva tarea
+                </p>
         </Fragment>
     );
 }

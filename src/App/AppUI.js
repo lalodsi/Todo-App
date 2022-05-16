@@ -6,6 +6,7 @@ import { TodoSearch } from '../TodoSearch';
 import { TodosCounter } from '../TodosCounter';
 import { TodoAdd } from '../TodoAdd';
 import { TodoContext } from "../TodoContext";
+import { Modal } from "../Modal";
 
 function WaitingMessage() {
   return(
@@ -21,6 +22,8 @@ function AppUI() {
     searchTodos, 
     completeTodo, 
     eraseTodo,
+    openModal,
+    setOpenModal,
     title } = React.useContext( TodoContext );
 
     return (
@@ -34,7 +37,7 @@ function AppUI() {
     <TodoSearch />
 
     
-      <TodoList>
+    <TodoList>
       {error && <p>Desespérate, hubo un error</p>}
       {loading && <WaitingMessage />}
       {(!loading && !searchTodos.length) && <p>Crea tu primer Todo</p>}
@@ -51,6 +54,11 @@ function AppUI() {
     
     
     <TodoAdd></TodoAdd>
+
+    {openModal &&
+        <Modal>
+        </Modal>
+    }
     
     </React.Fragment>)
 }

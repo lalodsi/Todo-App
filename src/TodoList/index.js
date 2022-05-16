@@ -4,9 +4,9 @@ import {TodoItem} from "../TodoItem"
 function TodoList(params){
     return (
         <section>
-            <hr></hr>
+            <hr className="separador"></hr>
             {params.children}
-            <hr></hr>
+            <hr className="separador"></hr>
         </section>
     );
 }

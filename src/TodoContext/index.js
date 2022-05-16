@@ -13,7 +13,7 @@ function TodoProvider(props) {
   } = useLocalStorage("Todos", []);
   const [searchValue, setSearchValue] = React.useState("");
   const [addValue, setAddValue] = React.useState("");
-  // const [Todos, setTodos] = React.useState(parsedTodos);
+  const [openModal, setOpenModal] = React.useState(false);
   
   // Filtrar los valores a buscar
   let searchTodos = [...Todos];
@@ -69,6 +69,8 @@ function TodoProvider(props) {
 			addValue,
 			setAddValue,
 			addTodo,
+      openModal,
+      setOpenModal
 		}}>
 			{props.children}
 		</TodoContext.Provider>

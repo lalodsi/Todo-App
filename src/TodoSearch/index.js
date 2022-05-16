@@ -15,7 +15,7 @@ function TodoSearch() {
 
     return (
         <React.Fragment>
-            <form>
+            <form className="formularioSearch">
                 <input
                     className="searchField"
                     placeholder="Ir a pagar al banco"
@@ -24,9 +24,7 @@ function TodoSearch() {
                 </input>
             </form>
             <p>
-                {
-                    mensajeBusqueda
-                }
+                {mensajeBusqueda}
             </p>
         </React.Fragment>
     );

@@ -8,8 +8,8 @@ function TodoItem(params) {
     }
 
     return (
-        <li>
-            <p className={setClass(params.completed)}>
+        <li className="lista-elemento">
+            <p className={"lista-elemento-texto " + setClass(params.completed)}>
                 {params.text}
             </p>
             <span onClick={params.onComplete}>
