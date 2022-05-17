@@ -1,35 +1,23 @@
 import React from "react";
 import { createPortal } from "react-dom";
-import "./Modal.css";
 import { TodoContext } from "../TodoContext";
+import { TodoForm } from "../TodoForm";
+import "./Modal.css";
 
 function Modal({ children }) {
+    const { setOpenModal } = React.useContext(TodoContext);
 
-    const { addValue, setAddValue, addTodo, setOpenModal } = React.useContext( TodoContext );
-
-    function changeValue(event) {
-        setAddValue(event.target.value);
-    }
-    function onAddValue() {
-        addTodo(addValue);
-        setOpenModal(false);
+    function click(event) {
+        if (event.target.className === "ModalBackground") {
+            setOpenModal(false);
+        }
     }
 
     return createPortal(
-        <div className="ModalBackground">
-            <h3>Escribe la tarea que quieres agregar</h3>
-            <form className="addForm">
-                <input className="addField" type="text" 
-                value={addValue}
-                onChange={changeValue}
-                />
-            </form>
-            <div>
-                <button className="addButton" 
-                onClick={onAddValue}
-                >Añadir</button>
+        <div className="ModalBackground" onClick={click}>
+            <div className="ModalBackground-contenedor">
+                <TodoForm></TodoForm>
             </div>
-            {children}
         </div>,
         document.getElementById("modal")
     );

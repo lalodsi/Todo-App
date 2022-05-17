@@ -6,17 +6,20 @@ function TodoAdd(params) {
 
     const { setOpenModal, openModal } = React.useContext( TodoContext );
 
+    const contenidoBotonNewTodo = openModal? "↩" : "+";
+    const claseBotonNewTodo = openModal? "newTodoButton back" : "newTodoButton";
+
     function onAddValue() {
-        setOpenModal(true)
+        setOpenModal(!openModal)
     }
 
     return(
         <Fragment>
-                <p 
-                    className="addButton"
+                <button 
+                    className={claseBotonNewTodo}
                     onClick={onAddValue}>
-                        Crear nueva tarea
-                </p>
+                        {contenidoBotonNewTodo}
+                </button>
         </Fragment>
     );
 }
