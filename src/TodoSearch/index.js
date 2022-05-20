@@ -18,7 +18,7 @@ function TodoSearch() {
             <form className="formularioSearch">
                 <input
                     className="searchField"
-                    placeholder="Ir a pagar al banco"
+                    placeholder="Escribe para buscar una tarea"
                     onChange={changeValue}
                 >
                 </input>
